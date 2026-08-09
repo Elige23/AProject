@@ -1,0 +1,21 @@
+<resources>
+
+    <string name="app_name">AProject</string>
+
+    <!--    TopBar -->
+    <string name="advice_title_top_bar">Take advice for the day</string>
+
+    <!--    Buttons-->
+    <string name="advice_fab_desc">Add Advice</string>
+    <string name="advice_action_repeat">Repeat</string>
+
+    <!--    State-->
+    <string name="advice_text_loading">Loading advice…</string>
+    <string name="advice_text_error">❌ %1$s</string>
+    <string name="advice_text_empty_state">Click 🔮 to get advice</string>
+
+    <!--    Advice List-->
+    <string name="advice_title_list_advices">" All advices: (%1$d)"</string>
+    <string name="advice_empty_list">No saved advices</string>
+
+</resources>
