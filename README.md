@@ -43,8 +43,16 @@ Built with modern Android stack — the project is actively growing, with more f
 
 
 ## 📸 Screenshots
-*Coming soon*
 
+### Advice Screen States
+
+|                  Light Theme                  |                 Dark Theme                  |
+|:---------------------------------------------:|:-------------------------------------------:|
+| ![Light](screenshots/advice_screen_light.png) | ![Dark](screenshots/advice_screen_dark.png) |
+
+|                   Loading State                   |                           Connection Error & List End                            |
+|:-------------------------------------------------:|:--------------------------------------------------------------------------------:|
+| ![Loading](screenshots/advice_screen_loading.png) | ![Error & List End](screenshots/advice_screen_connection_error_and_list_end.png) |
 ---
 
 ## 🚀 Setup & Installation
