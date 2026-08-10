@@ -10,9 +10,9 @@ import com.example.aproject.core.theme.Typography
 
 
 val AdviceLightColors = lightColorScheme(
-    primary = Color(0xFF6C63FF),
+    primary = Color(0xFF844EE8),
     onPrimary = Color.White,
-    primaryContainer = Color(0xFFE8E6FF),
+    primaryContainer = Color(0xFFDDCCFC),
     onPrimaryContainer = Color(0xFF1A1A2E),
     secondary = Color(0xFF03DAC6),
     onSecondary = Color.Black,
@@ -20,6 +20,9 @@ val AdviceLightColors = lightColorScheme(
     onBackground = Color(0xFF1A1A2E),
     surface = Color.White,
     onSurface = Color(0xFF1A1A2E),
+    onSurfaceVariant = Color(0xFF1A1A2E),
+    surfaceContainerHighest = Color(0xFFF5F2FA),
+    surfaceContainerLow = Color(0xFFF3F2FA),
     error = Color(0xFFB00020),
     onError = Color.White
 )
