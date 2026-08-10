@@ -25,16 +25,19 @@ val AdviceLightColors = lightColorScheme(
 )
 
 val AdviceDarkColors = darkColorScheme(
-    primary = Color(0xFFBB86FC),
+    primary = Color(0xFF123D60),
     onPrimary = Color.Black,
-    primaryContainer = Color(0xFF3700B3),
-    onPrimaryContainer = Color(0xFFE8E6FF),
+    primaryContainer = Color(0xFF0F2D52),
+    onPrimaryContainer = Color(0xFFCAC4D0),
     secondary = Color(0xFF03DAC6),
     onSecondary = Color.Black,
-    background = Color(0xFF121212),
-    onBackground = Color(0xFFE8E6FF),
+    background = Color(0xFF1B1A1E),
+    onBackground = Color(0xFFCAC4D0),
     surface = Color(0xFF1E1E1E),
-    onSurface = Color(0xFFE8E6FF),
+    onSurface = Color(0xFFCAC4D0),
+    onSurfaceVariant = Color(0xFFCAC4D0),
+    surfaceContainerHighest = Color(0xFF242328),
+    surfaceContainerLow = Color(0xFF242328),
     error = Color(0xFFCF6679),
     onError = Color.Black
 )
@@ -48,7 +51,7 @@ fun AdviceTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography, // ← Общая типография из основного файла
+        typography = Typography, // Общая типография из основного файла
         content = content
     )
 }
