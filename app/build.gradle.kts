@@ -69,9 +69,7 @@ dependencies {
     implementation(libs.androidx.material3)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
-  //  androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
-  //  debugImplementation(libs.androidx.ui.test.manifest)
 
     //Room
     implementation(libs.androidx.room.runtime)
@@ -80,14 +78,14 @@ dependencies {
 
     //Сoroutines
     // Основная библиотека корутин(Flow уже там)
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.11.0")
+    implementation(libs.kotlinx.coroutines.core)
     // Только для Android: поддержка главного потока (Main Dispatcher)
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.11.0")
+    implementation(libs.kotlinx.coroutines.android)
 
     //Navigation component
-    implementation("androidx.navigation:navigation-compose:2.9.8")
+    implementation(libs.androidx.navigation.compose)
     // Kotlin Serialization (для типобезопасной навигации)
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.11.0")
+    implementation(libs.kotlinx.serialization.json)
 
     //Hilt
     implementation(libs.hilt.android)
@@ -96,17 +94,17 @@ dependencies {
     implementation(libs.androidx.hilt.lifecycle.viewmodel.compose)
 
     //Retrofit
-    implementation("com.squareup.retrofit2:retrofit:3.0.0")
+    implementation(libs.retrofit)
     // Конвертер для преобразования JSON в объекты Kotlin (например, Gson)
-    implementation("com.squareup.retrofit2:converter-gson:3.0.0")
+    implementation(libs.converter.gson)
     // Конвертер на основе kotlinx.serialization (рекомендуется)
-    implementation("com.squareup.retrofit2:converter-kotlinx-serialization:3.0.0")
+    implementation(libs.retrofit2.converter.kotlinx.serialization)
     // Optional: OkHttp logging interceptor
-    implementation("com.squareup.okhttp3:logging-interceptor:5.5.0")
+    implementation(libs.logging.interceptor)
 
     //Material Icons
 //    implementation("androidx.compose.material:material-icons-core")
-    implementation("androidx.compose.material:material-icons-extended")
+    implementation(libs.androidx.compose.material.icons.extended)
 
     //Tests
     // JUnit 4
@@ -131,7 +129,7 @@ dependencies {
     // Hilt (DI)
     androidTestImplementation(libs.hilt.android.testing)
     // Обязательный плагин-компилятор для генерации тестовых компонентов
-    kspAndroidTest(libs.google.hilt.android.compiler) //всё верно ошибки нет
+    kspAndroidTest(libs.google.hilt.android.compiler) //все верно ошибки нет про дубликат и в остальных тоже
 
     // Compose UI ---
     androidTestImplementation(libs.androidx.ui.test.junit4)
