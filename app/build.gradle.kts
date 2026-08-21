@@ -67,13 +67,11 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
+  //  androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
+  //  debugImplementation(libs.androidx.ui.test.manifest)
 
     //Room
     implementation(libs.androidx.room.runtime)
@@ -92,10 +90,10 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.11.0")
 
     //Hilt
-    implementation("com.google.dagger:hilt-android:2.60")
-    ksp("com.google.dagger:hilt-android-compiler:2.60")
+    implementation(libs.hilt.android)
+    ksp(libs.google.hilt.android.compiler)
     // Расширение для внедрения зависимостей в ViewModel
-    implementation("androidx.hilt:hilt-lifecycle-viewmodel-compose:1.3.0")
+    implementation(libs.androidx.hilt.lifecycle.viewmodel.compose)
 
     //Retrofit
     implementation("com.squareup.retrofit2:retrofit:3.0.0")
@@ -104,10 +102,40 @@ dependencies {
     // Конвертер на основе kotlinx.serialization (рекомендуется)
     implementation("com.squareup.retrofit2:converter-kotlinx-serialization:3.0.0")
     // Optional: OkHttp logging interceptor
-    implementation("com.squareup.okhttp3:logging-interceptor:5.4.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:5.5.0")
 
     //Material Icons
 //    implementation("androidx.compose.material:material-icons-core")
     implementation("androidx.compose.material:material-icons-extended")
+
+    //Tests
+    // JUnit 4
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+
+    // Coroutines
+    testImplementation(libs.kotlinx.coroutines.test)
+    androidTestImplementation(libs.kotlinx.coroutines.test)
+
+    // MockK
+    testImplementation(libs.mockk)
+    androidTestImplementation(libs.mockk.android)
+
+    // Flow and LiveData
+    testImplementation(libs.androidx.core.testing)
+    androidTestImplementation(libs.androidx.core.testing)
+
+    // Room (InMemory)
+    androidTestImplementation(libs.androidx.room.testing)
+
+    // Hilt (DI)
+    androidTestImplementation(libs.hilt.android.testing)
+    // Обязательный плагин-компилятор для генерации тестовых компонентов
+    kspAndroidTest(libs.google.hilt.android.compiler) //всё верно ошибки нет
+
+    // Compose UI ---
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+    // Для отладки UI-тестов (показывает дерево композиции)
+    debugImplementation(libs.androidx.ui.test.manifest)
 
 }

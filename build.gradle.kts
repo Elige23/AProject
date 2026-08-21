@@ -7,6 +7,6 @@ plugins {
     id("com.google.devtools.ksp") version "2.3.9" apply false
 
     //Hilt
-    id("com.google.dagger.hilt.android") version "2.60" apply false
+    alias(libs.plugins.hilt) apply false
 
 }
