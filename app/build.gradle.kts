@@ -90,8 +90,17 @@ dependencies {
     //Hilt
     implementation(libs.hilt.android)
     ksp(libs.google.hilt.android.compiler)
+    // Для обработки аннотаций Hilt, дополнительный компилятор для интеграций
+    ksp(libs.androidx.hilt.compiler)
     // Расширение для внедрения зависимостей в ViewModel
     implementation(libs.androidx.hilt.lifecycle.viewmodel.compose)
+
+    // WorkManager
+    implementation(libs.androidx.work.runtime.ktx)
+    // Для интеграции WorkManager с Hilt
+    implementation(libs.androidx.hilt.work)
+    //Tests
+    androidTestImplementation(libs.androidx.work.testing)
 
     //Retrofit
     implementation(libs.retrofit)
