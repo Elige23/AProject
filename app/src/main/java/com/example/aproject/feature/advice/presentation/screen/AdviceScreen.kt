@@ -49,7 +49,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.aproject.R
-import com.example.aproject.core.utils.screenSizeInfo
+import com.example.aproject.core.utils.rememberScreenInfo
 import com.example.aproject.core.utils.toLocalizedDateTime
 import com.example.aproject.feature.advice.domain.model.Advice
 import com.example.aproject.feature.advice.presentation.theme.AdviceTheme
@@ -144,7 +144,7 @@ fun AdviceScreen(
         onClick: () -> Unit
     ) {
 
-        val screenSize = screenSizeInfo()
+        val screenSize = rememberScreenInfo()
 
         FloatingActionButton(
             onClick = onClick,
@@ -177,7 +177,7 @@ fun AdviceScreen(
         error: String?,
         onRetry: () -> Unit
     ) {
-        val screenSize = screenSizeInfo()
+        val screenSize = rememberScreenInfo()
 
         Card(
             modifier = Modifier
@@ -292,7 +292,7 @@ fun AdviceScreen(
     private fun AdviceList(
         adviceList: List<Advice>
     ) {
-        val screenSize = screenSizeInfo()
+        val screenSize = rememberScreenInfo()
 
         Column(
             modifier = Modifier.fillMaxWidth()

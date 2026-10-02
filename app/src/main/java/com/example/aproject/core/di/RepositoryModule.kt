@@ -8,15 +8,20 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
+/**
+ * Hilt module that binds repository interfaces to their implementations.
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 interface RepositoryModule {
 
-
+    /**
+     * Binds [AdviceRepositoryImpl] to [AdviceRepository].
+     */
     @Binds
     @Singleton
     fun bindAdviceRepository(
-            adviceRepository: AdviceRepositoryImpl
+        adviceRepository: AdviceRepositoryImpl
     ): AdviceRepository
 
 }

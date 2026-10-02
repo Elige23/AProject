@@ -23,6 +23,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.lifecycle.viewModelScope
 import com.example.aproject.feature.advice.data.repository.AdviceRepositoryImpl
 import com.example.aproject.feature.advice.domain.model.Advice
+import com.example.aproject.feature.advice.domain.repository.AdviceRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -35,7 +36,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AdviceViewModel @Inject constructor(
-    private val repository: AdviceRepositoryImpl
+    private val repository: AdviceRepository
 ): ViewModel() {
 
     data class AdviceUiState(
