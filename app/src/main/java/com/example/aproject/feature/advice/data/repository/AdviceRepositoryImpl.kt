@@ -11,35 +11,45 @@ import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 import javax.inject.Singleton
 
+/**
+ * Implementation of [AdviceRepository] backed by the local Room database
+ * and the remote Advice Slip API.
+ */
 @Singleton
 class AdviceRepositoryImpl @Inject constructor(
     private val dao: AdviceDao,
     private val api: AdviceApi
 ): AdviceRepository {
 
-    fun AdviceEntity.toAdvice(): Advice {
+    private fun AdviceEntity.toAdvice(): Advice {
         return Advice(this.id, this.advice, this.timeCreation)
     }
-    fun Advice.toAdviceEntity(): AdviceEntity {
+    private fun Advice.toAdviceEntity(): AdviceEntity {
         return AdviceEntity(this.id, this.advice, this.timeCreation)
     }
 
-    //Room
+    // Room
     override suspend fun insertAdvice(advice: Advice) = dao.insertAdvice(advice.toAdviceEntity())
 
+    /**
+     * Emits the list of saved advices, newest first.
+     */
     override fun getAllAdvices(): Flow<List<Advice>> = dao.getAllAdvices().map { list ->
         list.map { it.toAdvice() }
     }
 
 
-    //Retrofit
-    fun AdviceDto.toAdvice(): Advice {
+    // Retrofit
+    private fun AdviceDto.toAdvice(): Advice {
         return Advice(advice = this.advice)
     }
 
+    /**
+     * Fetches random advice from the API, wrapped in [Result].
+     * Without Result and try-catch block it is unsafe, because if, for example, there is no internet, then the crash.
+     */
     override suspend fun getRandomAdvice(): Result<Advice> {
 
-        //Без Result и блока try-catch небезопасно, так как если например нет интернета, то краш
         return try {
 
             val response = api.getRandomAdvice()
@@ -47,8 +57,7 @@ class AdviceRepositoryImpl @Inject constructor(
             Result.success(advice)
         }
         catch (e: Exception) {
-            Result.failure(e)  // ← Не крашит!
+            Result.failure(e)
         }
-
     }
 }

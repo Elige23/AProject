@@ -8,8 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import com.example.aproject.core.theme.Typography
 
-
-val AdviceLightColors = lightColorScheme(
+private val AdviceLightColors = lightColorScheme(
     primary = Color(0xFF844EE8),
     onPrimary = Color.White,
     primaryContainer = Color(0xFFDDCCFC),
@@ -27,7 +26,7 @@ val AdviceLightColors = lightColorScheme(
     onError = Color.White
 )
 
-val AdviceDarkColors = darkColorScheme(
+private val AdviceDarkColors = darkColorScheme(
     primary = Color(0xFF123D60),
     onPrimary = Color.Black,
     primaryContainer = Color(0xFF0F2D52),
@@ -45,16 +44,19 @@ val AdviceDarkColors = darkColorScheme(
     onError = Color.Black
 )
 
+/**
+ * Theme for the advice feature with its own color palette.
+ */
 @Composable
 fun AdviceTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    val colorScheme = if (darkTheme) AdviceDarkColors else AdviceLightColors //Выбираем цветовую схему в зависимости от темы
+    val colorScheme = if (darkTheme) AdviceDarkColors else AdviceLightColors
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography, // Общая типография из основного файла
+        typography = Typography, // General typography from the main file
         content = content
     )
 }
