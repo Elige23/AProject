@@ -23,8 +23,12 @@ class NotificationHelper @Inject constructor(
 ) {
 
     companion object {
-        const val CHANNEL_ID = "advice_channel"
-        const val CHANNEL_NAME = "Advice"
+        private const val CHANNEL_ID = "advice_channel"
+        private const val CHANNEL_NAME = "Advice"
+
+        private const val ADVICE_NOTIFICATION_ID = 1
+        private const val ADVICE_NO_INTERNET_NOTIFICATION_ID = 2
+        private const val ADVICE_PENDING_INTENT_REQUEST_CODE = 100
     }
 
     /**
@@ -63,7 +67,7 @@ class NotificationHelper @Inject constructor(
             .build()
 
         val manager = context.getSystemService(NotificationManager::class.java)
-        manager.notify(1, notification)
+        manager.notify(ADVICE_NOTIFICATION_ID, notification)
     }
 
     /**
@@ -80,7 +84,7 @@ class NotificationHelper @Inject constructor(
             .build()
 
         val manager = context.getSystemService(NotificationManager::class.java)
-        manager.notify(2, notification)
+        manager.notify(ADVICE_NO_INTERNET_NOTIFICATION_ID, notification)
     }
 
     /**
@@ -92,7 +96,7 @@ class NotificationHelper @Inject constructor(
         }
         return PendingIntentCompat.getActivity(
             context,
-            0,
+            ADVICE_PENDING_INTENT_REQUEST_CODE,
             intent,
             PendingIntent.FLAG_UPDATE_CURRENT,
             false
