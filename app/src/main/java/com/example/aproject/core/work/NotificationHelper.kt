@@ -23,8 +23,8 @@ class NotificationHelper @Inject constructor(
 ) {
 
     companion object {
-        private const val CHANNEL_ID = "advice_channel"
-        private const val CHANNEL_NAME = "Advice"
+        private const val ADVICE_CHANNEL_ID = "advice_channel"
+        private const val ADVICE_CHANNEL_NAME = "Advice"
 
         private const val ADVICE_NOTIFICATION_ID = 1
         private const val ADVICE_NO_INTERNET_NOTIFICATION_ID = 2
@@ -32,14 +32,21 @@ class NotificationHelper @Inject constructor(
     }
 
     /**
+     * Registers all notification channels used by the app.
+     */
+    fun createNotificationChannels() {
+        createAdviceNotificationChannel()
+    }
+
+    /**
      * Creates the notification channel (required on Android 8.0+).
      * Android 8.0 meets the minimum SDK API Level 26 of the application.
      */
-    fun createNotificationChannel() {
+    private fun createAdviceNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
-                CHANNEL_ID,
-                CHANNEL_NAME,
+                ADVICE_CHANNEL_ID,
+                ADVICE_CHANNEL_NAME,
                 NotificationManager.IMPORTANCE_DEFAULT
             ).apply {
                 description = "Daily advice notifications"
@@ -53,7 +60,7 @@ class NotificationHelper @Inject constructor(
      * Shows a notification with the given advice. Uses ID 1, replacing any previous advice notification.
      */
     fun showAdviceNotification(adviceText: String) {
-        val notification = NotificationCompat.Builder(context, CHANNEL_ID)
+        val notification = NotificationCompat.Builder(context, ADVICE_CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_add_advice_button)
             .setContentTitle("Daily Advice")
             .setContentText("$adviceText\n\nMore advices in the app!")
@@ -62,7 +69,7 @@ class NotificationHelper @Inject constructor(
                     .bigText("$adviceText\n\nMore advices in the app!")
             )
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            .setContentIntent(createPendingIntent())
+            .setContentIntent(createAdvicePendingIntent())
             .setAutoCancel(true)
             .build()
 
@@ -74,12 +81,12 @@ class NotificationHelper @Inject constructor(
      * Shows a notification inviting the user to open the app. Uses ID 2.
      */
     fun showNoInternetAdviceNotification() {
-        val notification = NotificationCompat.Builder(context, CHANNEL_ID)
+        val notification = NotificationCompat.Builder(context, ADVICE_CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_add_advice_button)
             .setContentTitle("Don't know what awaits you?")
             .setContentText("Open the app and find out your advice for today!")
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            .setContentIntent(createPendingIntent())
+            .setContentIntent(createAdvicePendingIntent())
             .setAutoCancel(true)
             .build()
 
@@ -90,7 +97,7 @@ class NotificationHelper @Inject constructor(
     /**
      * Creates a [PendingIntent] that opens [MainActivity] when the notification is tapped.
      */
-    private fun createPendingIntent(): PendingIntent {
+    private fun createAdvicePendingIntent(): PendingIntent {
         val intent = Intent(context, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
