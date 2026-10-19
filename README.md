@@ -13,6 +13,8 @@ Built with a modern Android stack - the project is actively growing, with more f
 - 🌙 Full **light** and **dark** **theme support**
 - 🎨 Clean, modern UI built entirely with **Jetpack Compose**
 - 🔔 **Daily Notifications** - receive a new piece of advice every day at 10:00 AM, powered by **WorkManager**
+- 🔐 **Notification Permission Onboarding** - smooth and modern system 
+dialog request on Android 13+ using **Preferences DataStore**
 - 🧩 Modular and scalable architecture ready for new features
 
 ---
@@ -36,6 +38,7 @@ Built with a modern Android stack - the project is actively growing, with more f
 
 **Local Storage**
 - Room Database
+- Preferences DataStore
 
 **Background Work**
 - WorkManager · HiltWorkerFactory · CoroutineWorker
@@ -55,6 +58,12 @@ The app uses **WorkManager** to schedule a periodic background task that runs da
 - **Expandable text:** Notifications use `BigTextStyle`, so long advice texts are displayed correctly when the user expands the notification.
 - **Error handling:** The Worker uses `Result.success()` with a fallback notification to ensure users are always notified, regardless of network conditions.
 
+## 🔐 Permissions & Onboarding
+
+The app requests the `POST_NOTIFICATIONS` permission on Android 13+.
+
+- **State Persistence:** The result of the request is stored in **Preferences DataStore**. This ensures the dialog is 
+shown only once and respects the user's choice on subsequent launches.
 ---
 
 ## 📸 Screenshots
