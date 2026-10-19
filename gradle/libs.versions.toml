@@ -3,6 +3,7 @@ agp = "9.2.1"
 converterGson = "3.0.0"
 converterKotlinxSerialization = "3.0.0"
 coreTesting = "2.2.0"
+datastorePreferences = "1.2.1"
 hilt = "2.60.1"
 hiltCompiler = "1.4.0"
 hiltLifecycleViewmodelCompose = "1.4.0"
@@ -29,6 +30,7 @@ workManager = "2.12.0"
 androidx-compose-material-icons-extended = { module = "androidx.compose.material:material-icons-extended" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-core-testing = { module = "androidx.arch.core:core-testing", version.ref = "coreTesting" }
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
 androidx-hilt-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "hiltCompiler" }
 androidx-hilt-lifecycle-viewmodel-compose = { module = "androidx.hilt:hilt-lifecycle-viewmodel-compose", version.ref = "hiltLifecycleViewmodelCompose" }
 androidx-hilt-work = { module = "androidx.hilt:hilt-work", version.ref = "hiltCompiler" }

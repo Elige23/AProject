@@ -76,6 +76,9 @@ dependencies {
     ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
 
+    //Preferences DataStore
+    implementation(libs.androidx.datastore.preferences)
+
     //Сoroutines
     // Основная библиотека корутин(Flow уже там)
     implementation(libs.kotlinx.coroutines.core)
