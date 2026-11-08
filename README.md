@@ -43,6 +43,9 @@ dialog request on Android 13+ using **Preferences DataStore**
 **Background Work**
 - WorkManager · HiltWorkerFactory · CoroutineWorker
 
+**Testing** 
+- Unit Testing · Instrumented Tests · JUnit · MockK
+
 **Tools**
 - Android Studio · Git · Gradle
 
